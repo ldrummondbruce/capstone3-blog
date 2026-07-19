@@ -74,3 +74,10 @@ main .container-fluid {
 .postContent a {
   text-decoration: underline;
 }
+
+@media (max-width: 900px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
