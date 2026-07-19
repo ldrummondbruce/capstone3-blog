@@ -71,6 +71,10 @@ main .container-fluid {
   font-size: 1.1rem;
 }
 
+.postContent {
+  white-space: pre-wrap;
+}
+
 .postContent a {
   text-decoration: underline;
 }

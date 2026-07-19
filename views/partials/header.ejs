@@ -45,11 +45,11 @@
     <main>
       <div class="container-fluid">
         <div class="sidebar border-end col-sm-3 col-lg-2 pe-3">
-          <h2>Blog Posts</h2>
+          <h2>Posts</h2>
           <% if (locals.blogPosts && locals.blogPosts.length > 0) { %>
-            <% blogPosts.forEach((post)=> { %>
+            <% blogPosts.forEach((post, idx)=> { %>
               <h3 class="postTitle"><%= post.postTitle %></h3>
-              <p class="postContent"><%= post.postContent.substr(0,50) %> ...<br/><a href="/posts/<%=post.postTitle%>" title="<%=post.postTitle%>">Read More</a></p>
+              <p class="postContent"><%= post.postContent.substr(0,50) %> ...<br/><a href="/posts/<%=idx%>" title="<%=post.postTitle%>">Read More</a></p>
             <% }) %>
           <% } %>
         </div>

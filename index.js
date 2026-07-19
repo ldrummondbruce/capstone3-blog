@@ -44,24 +44,25 @@ app.get("/compose", (req, res) => {
 
 // Change this to only return a single post so I can also pass its current index
 // Or change matchPosts to be an array of objects that also includes each post's current index
-app.get("/posts/:postTitle", (req, res) => {
-  let matchPosts = [];
-  const reqTitle = _.lowerCase(req.params.postTitle);
+app.get("/posts/:postIndex", (req, res) => {
+  let matchPost = posts[req.params.postIndex];
+  // const reqTitle = req.params.postTitle ? _.lowerCase(req.params.postTitle) : '';
   // console.log(reqTitle);
 
-  posts.forEach((post, i) => {
-    const postTitle = _.lowerCase(post.postTitle);
-    // console.log(postTitle);
-    if (
-      postTitle.includes(reqTitle) ||
-      reqTitle.includes(postTitle)
-    ) {
-      matchPosts.push({post: post, postIndex: i});
-    }
-  });
+  // posts.forEach((post, i) => {
+  //   const postTitle = post.postTitle ? _.lowerCase(post.postTitle) : '';
+  //   // console.log(postTitle);
+  //   if (
+  //     postTitle.includes(reqTitle) ||
+  //     reqTitle.includes(postTitle)
+  //   ) {
+  //     matchPosts.push({post: post, postIndex: i});
+  //   }
+  // });
   res.render('post.ejs', {
     blogPosts: posts,
-    matched: matchPosts
+    post: matchPost,
+    index: req.params.postIndex
   });
 });
 
