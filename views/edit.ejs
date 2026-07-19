@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Edit <%=post.postTitle%></h1>
+<form action="/edit/<%=postIndex%>" method="POST">
+  <div class="mb-3">
+    <label for="postTitle" class="form-label">Title</label>
+    <input type="text" class="form-control" id="postTitle" name="postTitle" value="<%=post.postTitle%>">
+  </div>
+  <div class="mb-3">
+    <label for="postContent" class="form-label">Post</label>
+    <textarea class="form-control" id="postContent" name="postContent" rows="3"><%=post.postContent%></textarea>
+  </div>
+  <button type="submit" class="btn btn-light btn-md px-4">Update</button>
+  <a href="/delete/<%=postIndex%>" title="Delete post" class="btn btn-light btn-md px-4">Delete</a>
+  <a href="/posts/<%=post.postTitle%>" title="Return to post" class="btn btn-light btn-md px-4">Cancel</a>
+</form>
+
+<%- include("partials/footer.ejs") %>

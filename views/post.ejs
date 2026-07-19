@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+
+<% if (locals.matched && locals.matched.length > 0) { %>
+  <% matched.forEach((item) => { %>
+    <h2 class="postTitle"><%= item.post.postTitle %></h2>
+    <p class="postContent"><%= item.post.postContent %></p>
+    <a class="btn btn-light btn-md px-4" href="/edit/<%=item.postIndex%>" title="Edit this post">Edit</a>
+  <% }) %>
+<% } else { %>
+    <h2 class="postTitle">Post not found</h2>
+<% } %>
+
+<%- include("partials/footer.ejs") %>
